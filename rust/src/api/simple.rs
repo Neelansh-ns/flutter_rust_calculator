@@ -12,7 +12,10 @@ pub fn init_app() {
 #[flutter_rust_bridge::frb(sync)]
 pub fn calculate_expression(expression: String) -> Result<String, EvalError<f64>> {
     let mut c = Computer::<f64>::default();
-    // Add custom functions
-    println!("{}", c.eval("2+2").unwrap());
 
+    let result: Result<f64, rsc::EvalError<f64>> = c.eval(&expression);
+    match result {
+        Ok(result) => Ok(result.to_string()),
+        Err(error) => Err(error),
+    }
 }

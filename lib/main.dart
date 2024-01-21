@@ -1,5 +1,6 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_keyboard_visibility/flutter_keyboard_visibility.dart';
 import 'package:flutter_rust_calculator/src/rust/api/simple.dart';
 import 'package:flutter_rust_calculator/src/rust/frb_generated.dart';
@@ -74,6 +75,10 @@ class _MyHomePageState extends State<MyHomePage> {
                     labelText: 'Enter an expression',
                     hintText: 'e.g. 1 + 2 * 3',
                   ),
+                  inputFormatters: [
+                    //To remove whitespaces after each character
+                    FilteringTextInputFormatter.deny(RegExp(r' \s+')),
+                  ],
                   onChanged: (value) {
                     if (_error != null || _result != null) {
                       setState(() {

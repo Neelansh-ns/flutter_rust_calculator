@@ -39,6 +39,7 @@ dependencies:
   rust_builder:
     path: rust_builder
   flutter_keyboard_visibility: ^6.0.0
+  get_it: ^7.6.7
 
 dev_dependencies:
   flutter_test:

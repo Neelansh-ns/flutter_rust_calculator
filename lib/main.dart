@@ -2,11 +2,13 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_keyboard_visibility/flutter_keyboard_visibility.dart';
-import 'package:flutter_rust_calculator/src/rust/api/simple.dart';
-import 'package:flutter_rust_calculator/src/rust/frb_generated.dart';
+import 'package:flutter_rust_calculator/entities/calculator_repository.dart';
+import 'package:flutter_rust_calculator/src/di/service_locator.dart';
 
 Future<void> main() async {
-  await RustLib.init();
+  WidgetsFlutterBinding.ensureInitialized();
+  await setUpServices();
+  await locator.get<CalculatorRepository>().initApp();
   runApp(const MyApp());
 }
 
@@ -151,7 +153,7 @@ class _MyHomePageState extends State<MyHomePage> {
     }
     try {
       setState(() {
-        _result = calculateExpression(expression: _expressionController.text);
+        _result = locator.get<CalculatorRepository>().calculateExpression(expression: _expressionController.text);
         _error = null;
       });
     } catch (e, s) {

@@ -25,5 +25,9 @@ A rust based calculator for mathematical expressions.
 1. Apk of the app
 2. Screenshots of the app
 
+Screen 0             |  Screen 1             |  Screen 2
+:-------------------------:|:-------------------------:|:-------------------------:
+<img src="artifacts/image1.png" width="300"> | <img src="artifacts/image2.png" width="300"> | <img src="artifacts/image3.png" width="300">
+
 In case of any queries, please reach out to me at: +917297848992 or sethineelansh@gmail.com
 Thanks,

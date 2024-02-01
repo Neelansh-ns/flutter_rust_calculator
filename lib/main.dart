@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_keyboard_visibility/flutter_keyboard_visibility.dart';
 import 'package:flutter_rust_calculator/entities/calculator_repository.dart';
+import 'package:flutter_rust_calculator/screens/video_picker_screen.dart';
 import 'package:flutter_rust_calculator/src/di/service_locator.dart';
 
 Future<void> main() async {
@@ -23,7 +24,8 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const MyHomePage(title: 'Rust Calculator'),
+      // home: const MyHomePage(title: 'Rust Calculator'),
+      home: const VideoPickerScreen(),
     );
   }
 }

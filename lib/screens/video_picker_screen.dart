@@ -75,6 +75,7 @@ class _VideoPickerScreenState extends State<VideoPickerScreen> {
                     inputFormatters: [
                       //To remove whitespaces after each character
                       FilteringTextInputFormatter.deny(RegExp(r' \s+')),
+                      FilteringTextInputFormatter.digitsOnly,
                     ],
                   ),
                 if (_filePath.isNotEmpty)

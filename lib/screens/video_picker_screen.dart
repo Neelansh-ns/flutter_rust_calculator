@@ -140,6 +140,7 @@ class _VideoPickerScreenState extends State<VideoPickerScreen> {
   }
 
   Future<void> extractFrame(int frameNumber, String videoPath) async {
+    final scaffoldMessenger = ScaffoldMessenger.of(context);
     try {
       final String framePath =
           await const MethodChannel('video_frame_extractor').invokeMethod(
@@ -151,6 +152,11 @@ class _VideoPickerScreenState extends State<VideoPickerScreen> {
     } on PlatformException catch (e) {
       if (kDebugMode) {
         print("Failed to extract frame: '${e.message}'.");
+        scaffoldMessenger.showSnackBar(
+          SnackBar(
+            content: Text("Failed to extract frame: '${e.message}'."),
+          ),
+        );
       }
     }
   }

@@ -119,7 +119,7 @@ class _VideoPickerScreenState extends State<VideoPickerScreen> {
                               return const SizedBox();
                             },
                           )
-                        : const Text('Extracting frame...'),
+                        : const SizedBox(),
                   ),
               ],
             ),
@@ -128,8 +128,8 @@ class _VideoPickerScreenState extends State<VideoPickerScreen> {
   }
 
   Future<void> pickVideo() async {
-    final ImagePicker _picker = ImagePicker();
-    final XFile? file = await _picker.pickVideo(
+    final ImagePicker picker = ImagePicker();
+    final XFile? file = await picker.pickVideo(
       source: ImageSource.gallery,
     );
     if (file != null) {
